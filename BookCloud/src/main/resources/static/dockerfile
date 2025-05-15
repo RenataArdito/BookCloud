@@ -1,14 +1,7 @@
-# Usa imagem oficial do Python
-FROM python:3.11-slim
-
-# Define o diretório de trabalho no container
+FROM node:20-alpine
 WORKDIR /app
-
-# Copia todos os arquivos do site para o container
-COPY . /app
-
-# Expõe a porta 8000
-EXPOSE 8000
-
-# Comando para rodar o servidor HTTP simples do Python
-CMD ["python3", "-m", "http.server", "8000"]
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY . .
+EXPOSE 3000
+CMD ["node", "src/index.js"]
