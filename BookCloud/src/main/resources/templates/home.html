@@ -3,17 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD:BookCloud/src/main/resources/templates/home.html
   <title>BookCloud - Catálogo de Livros</title>
+=======
+  <title>BookCloud - Cadastro de Livros</title>
+>>>>>>> b1a31d3 (mudança css e html):BookCloud/src/main/resources/templantes/home.html
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <aside class="sidebar">
+<<<<<<< HEAD:BookCloud/src/main/resources/templates/home.html
     <img src="/img/image1.png" alt="BookCloud Logo" class="logo" />
+=======
+    <img src="/src/main/resources/static/icons/logo.png" alt="BookCloud Logo" class="logo" />
+>>>>>>> b1a31d3 (mudança css e html):BookCloud/src/main/resources/templantes/home.html
     <h1>BookCloud</h1>
-    <p>Tela Inicial</p>
+    <p>Cadastro de Livros</p>
   </aside>
 
   <main class="main-content">
+<<<<<<< HEAD:BookCloud/src/main/resources/templates/home.html
     <div class="card">
       <img src="/img/image1.png" alt="Capa do livro Powerless" />
       <div class="card-content">
@@ -60,7 +69,40 @@
         <span class="badge quero"></span>
         <span class="badge-label">Quero Ler</span>
       </div>
+=======
+  <form action="/livros" method="POST" class="card">
+    <h2>Cadastrar Novo Livro</h2>
+    <div class="form-field">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" required />
     </div>
+
+    <div class="form-field">
+      <label for="autora">Autora:</label>
+      <input type="text" id="autora" name="autora" required />
+    </div>
+
+    <div class="form-field">
+      <label for="editora">Editora:</label>
+      <input type="text" id="editora" name="editora" required />
+>>>>>>> b1a31d3 (mudança css e html):BookCloud/src/main/resources/templantes/home.html
+    </div>
+
+    <div class="form-field">
+      <label for="paginas">Número de Páginas:</label>
+      <input type="number" id="paginas" name="paginas" required />
+    </div>
+
+    <div class="form-field">
+      <label for="status">Status de Leitura:</label>
+      <select id="status" name="status" required>
+        <option value="lido">Lido</option>
+        <option value="quero-ler">Quero Ler</option>
+      </select>
+    </div>
+
+    <button type="submit">Cadastrar Livro</button>
+  </form>
   </main>
 </body>
 </html>
