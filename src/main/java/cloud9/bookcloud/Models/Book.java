@@ -2,6 +2,7 @@ package cloud9.bookcloud.Models;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "books")
 public class Book {
