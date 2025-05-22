@@ -1,68 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>BookCloud - Cadastro de Livros</title>
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <aside class="sidebar">
-    <img src="/src/main/resources/static/icons/logo.png" alt="BookCloud Logo" class="logo" />
+    <img src="/icons/logo.png" alt="BookCloud Logo" class="logo">
     <h1>BookCloud</h1>
     <p>Cadastro de Livros</p>
   </aside>
 
   <main class="main-content">
+    <h2>Livros Cadastrados</h2>
     <div class="cards-container">
-      <div class="card">
-        <div class="card-content">
-          <h2>Powerless</h2>
-          <p><strong>Autora:</strong> Lauren Roberts</p>
-          <p><strong>Editora:</strong> Rocco</p>
-          <p><strong>Páginas:</strong> 560</p>
-        </div>
+      <div th:if="${#lists.isEmpty(livros)}">
+        <p>Nenhum livro cadastrado.</p>
       </div>
 
-      <div class="card">
+      <div th:each="livro : ${livros}" class="card">
         <div class="card-content">
-          <h2>Quarta Asa</h2>
-          <p><strong>Autora:</strong> Rebecca Yarros</p>
-          <p><strong>Editora:</strong> Planeta</p>
-          <p><strong>Páginas:</strong> 520</p>
-        </div>
-      </div>
+          <h2 th:text="${livro.titulo}">Título</h2>
+          <p><strong>Autora:</strong> <span th:text="${livro.autora}"></span></p>
+          <p><strong>Editora:</strong> <span th:text="${livro.editora}"></span></p>
+          <p><strong>Páginas:</strong> <span th:text="${livro.paginas}"></span></p>
+          <p><strong>Status:</strong> <span th:text="${livro.status}"></span></p>
 
-      <div class="card">
-        <div class="card-content">
-          <h2>Melhor do que nos filmes</h2>
-          <p><strong>Autora:</strong> Lynn Painter</p>
-          <p><strong>Editora:</strong> Intrínseca</p>
-          <p><strong>Páginas:</strong> 352</p>
+          <!-- Botão de Deletar -->
+          <div class="icon-del-wrapper">
+            <form th:action="@{/livros/deletar/{id}(id=${livro.id})}" method="post">
+              <button type="submit" title="Apagar livro" onclick="return confirm('Tem certeza que deseja apagar este livro?')">
+                <img src="/icons/delete.png" alt="Apagar" class="icon-del">
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
 
-    <form id="livroForm" action="/livros" method="POST" class="card">
+    <form id="livroForm" action="/livros" method="post" class="card">
       <h2>Cadastrar Novo Livro</h2>
       <div class="form-field">
         <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo" required />
+        <input type="text" id="titulo" name="titulo" required>
       </div>
 
       <div class="form-field">
         <label for="autora">Autora:</label>
-        <input type="text" id="autora" name="autora" required />
+        <input type="text" id="autora" name="autora" required>
       </div>
 
       <div class="form-field">
         <label for="editora">Editora:</label>
-        <input type="text" id="editora" name="editora" required />
+        <input type="text" id="editora" name="editora" required>
       </div>
 
       <div class="form-field">
         <label for="paginas">Número de Páginas:</label>
-        <input type="number" id="paginas" name="paginas" required />
+        <input type="number" id="paginas" name="paginas" required>
       </div>
 
       <div class="form-field">
@@ -75,27 +71,32 @@
 
       <button id="btnCadastrar" type="button">Cadastrar Livro</button>
     </form>
+
+    <!-- Modal de sucesso -->
+    <div id="modal-sucesso" class="modal hidden">
+      <div class="modal-content">
+        <img src="/icons/check.png" alt="Sucesso" class="check-icon">
+        <h3>LIVRO CADASTRADO COM SUCESSO!</h3>
+        <div class="modal-buttons">
+          <button id="confirmarEnvio">VER LISTA</button>
+          <button id="cancelarEnvio">NOVO CADASTRO</button>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
-    const btnCadastrar = document.getElementById("btnCadastrar");
+    const btn = document.getElementById("btnCadastrar");
     const form = document.getElementById("livroForm");
     const modal = document.getElementById("modal-sucesso");
-    const verLivros = document.getElementById("verLivros");
-    const novoCadastro = document.getElementById("novoCadastro");
+    const ok = document.getElementById("confirmarEnvio");
+    const cancel = document.getElementById("cancelarEnvio");
 
-    btnCadastrar.addEventListener("click", () => {
-      // Exibe modal de sucesso
-      modal.classList.remove("hidden");
-    });
+    btn.addEventListener("click", () => modal.classList.remove("hidden"));
 
-    // Ao clicar em VER LIVROS, envia o formulário
-    verLivros.addEventListener("click", () => {
-      form.submit();
-    });
+    ok.addEventListener("click", () => form.submit());
 
-    // Ao clicar em NOVO CADASTRO, reseta o formulário e fecha modal
-    novoCadastro.addEventListener("click", () => {
+    cancel.addEventListener("click", () => {
       form.reset();
       modal.classList.add("hidden");
     });
