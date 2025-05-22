@@ -14,67 +14,103 @@
   </aside>
 
   <main class="main-content">
-  <div class="cards-container">
-    <div class="card">
-      <div class="card-content">
-        <h2>Powerless</h2>
-        <p><strong>Autora:</strong> Lauren Roberts</p>
-        <p><strong>Editora:</strong> Rocco</p>
-        <p><strong>Páginas:</strong> 560</p>
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-content">
+          <h2>Powerless</h2>
+          <p><strong>Autora:</strong> Lauren Roberts</p>
+          <p><strong>Editora:</strong> Rocco</p>
+          <p><strong>Páginas:</strong> 560</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2>Quarta Asa</h2>
+          <p><strong>Autora:</strong> Rebecca Yarros</p>
+          <p><strong>Editora:</strong> Planeta</p>
+          <p><strong>Páginas:</strong> 520</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2>Melhor do que nos filmes</h2>
+          <p><strong>Autora:</strong> Lynn Painter</p>
+          <p><strong>Editora:</strong> Intrínseca</p>
+          <p><strong>Páginas:</strong> 352</p>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-content">
-        <h2>Quarta Asa</h2>
-        <p><strong>Autora:</strong> Rebecca Yarros</p>
-        <p><strong>Editora:</strong> Planeta</p>
-        <p><strong>Páginas:</strong> 520</p>
+    <form id="livroForm" action="/livros" method="POST" class="card">
+      <h2>Cadastrar Novo Livro</h2>
+      <div class="form-field">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required />
+      </div>
+
+      <div class="form-field">
+        <label for="autora">Autora:</label>
+        <input type="text" id="autora" name="autora" required />
+      </div>
+
+      <div class="form-field">
+        <label for="editora">Editora:</label>
+        <input type="text" id="editora" name="editora" required />
+      </div>
+
+      <div class="form-field">
+        <label for="paginas">Número de Páginas:</label>
+        <input type="number" id="paginas" name="paginas" required />
+      </div>
+
+      <div class="form-field">
+        <label for="status">Status de Leitura:</label>
+        <select id="status" name="status" required>
+          <option value="lido">Lido</option>
+          <option value="quero-ler">Quero Ler</option>
+        </select>
+      </div>
+
+      <button id="btnCadastrar" type="button">Cadastrar Livro</button>
+    </form>
+
+    <div id="modal-sucesso" class="modal hidden">
+      <div class="modal-content">
+        <img src="/icons/check.png" alt="Sucesso" class="check-icon" />
+        <h3>LIVRO CADASTRADO COM SUCESSO!</h3>
+        <div class="modal-buttons">
+          <button id="verLivros">VER LIVROS</button>
+          <button id="novoCadastro">NOVO CADASTRO</button>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-content">
-        <h2>Melhor do que nos filmes</h2>
-        <p><strong>Autora:</strong> Lynn Painter</p>
-        <p><strong>Editora:</strong> Intrínseca</p>
-        <p><strong>Páginas:</strong> 352</p>
-      </div>
-    </div>
-  </div>
+  </main>
 
-  <form action="/livros" method="POST" class="card">
-    <h2>Cadastrar Novo Livro</h2>
-    <div class="form-field">
-      <label for="titulo">Título:</label>
-      <input type="text" id="titulo" name="titulo" required />
-    </div>
+  <script>
+    const btnCadastrar = document.getElementById("btnCadastrar");
+    const form = document.getElementById("livroForm");
+    const modal = document.getElementById("modal-sucesso");
+    const verLivros = document.getElementById("verLivros");
+    const novoCadastro = document.getElementById("novoCadastro");
 
-    <div class="form-field">
-      <label for="autora">Autora:</label>
-      <input type="text" id="autora" name="autora" required />
-    </div>
+    btnCadastrar.addEventListener("click", () => {
+      // Exibe modal de sucesso
+      modal.classList.remove("hidden");
+    });
 
-    <div class="form-field">
-      <label for="editora">Editora:</label>
-      <input type="text" id="editora" name="editora" required />
-    </div>
+    // Ao clicar em VER LIVROS, envia o formulário
+    verLivros.addEventListener("click", () => {
+      form.submit();
+    });
 
-    <div class="form-field">
-      <label for="paginas">Número de Páginas:</label>
-      <input type="number" id="paginas" name="paginas" required />
-    </div>
-
-    <div class="form-field">
-      <label for="status">Status de Leitura:</label>
-      <select id="status" name="status" required>
-        <option value="lido">Lido</option>
-        <option value="quero-ler">Quero Ler</option>
-      </select>
-    </div>
-
-    <button type="submit">Cadastrar Livro</button>
-  </form>
-</main>
+    // Ao clicar em NOVO CADASTRO, reseta o formulário e fecha modal
+    novoCadastro.addEventListener("click", () => {
+      form.reset();
+      modal.classList.add("hidden");
+    });
+  </script>
 </body>
 </html>
