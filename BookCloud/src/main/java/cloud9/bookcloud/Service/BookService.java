@@ -8,8 +8,9 @@ public interface BookService {
     Book findById(Long id);
     Book save(Book book);
     void deleteById(Long id);
+
     List<Book> findUnmarked();
-    List<Book> findByCategory(String category);
+
     Book markAsRead(Long id);
     Book markAsToRead(Long id);
 }

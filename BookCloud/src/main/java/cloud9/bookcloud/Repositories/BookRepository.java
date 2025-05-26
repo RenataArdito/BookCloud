@@ -8,5 +8,4 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByLidoFalseAndQueroLerFalse();
-    List<Book> findByCategory(String category);
 }

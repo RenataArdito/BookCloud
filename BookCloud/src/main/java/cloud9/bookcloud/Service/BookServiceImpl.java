@@ -22,7 +22,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findById(Long id) {
-        return repo.findById(id).orElseThrow(() -> new NoSuchElementException("Book not found: " + id));
+        return repo.findById(id)
+                   .orElseThrow(() -> new NoSuchElementException("Book not found: " + id));
     }
 
     @Override
@@ -38,11 +39,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findUnmarked() {
         return repo.findByLidoFalseAndQueroLerFalse();
-    }
-
-    @Override
-    public List<Book> findByCategory(String category) {
-        return repo.findByCategory(category);
     }
 
     @Override
