@@ -14,9 +14,9 @@ Optamos pelo universo dos livros porque não há nada como mergulhar em novas na
 
  - Inserir livros com título, editora, número de páginas e gênero.
 
- - Navegar entre os livros já adicionados, os que você já leu e os que ainda quer ler.
+ - Navegar entre os livros no catálogo.
 
- - Atualizar o status conforme avança na leitura.
+ - Atualizar o status conforme avança na leitura, como lido ou se ainda quer ler.
 
  - Remover da lista títulos que não fazem mais sentido pra você.
 
