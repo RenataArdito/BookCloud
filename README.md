@@ -10,17 +10,16 @@
 4. 10417520 - Renata Freire Ardito - Back-end, documentação
 
 ## 1. Visão geral
-Imagine ter sua própria estante virtual, acessível de qualquer lugar. Inspirado no Skoob, nosso sistema CRUD na AWS permite:
+Optamos pelo universo dos livros porque não há nada como mergulhar em novas narrativas e viajar sem sair do lugar. Imagine sua própria estante virtual, disponível e sustentada pela segurança e escalabilidade da AWS. Inspirado no Skoob, nosso sistema CRUD na AWS permite:
 
- - Inserir livros com título, editora, número de páginas e gênero
+ - Inserir livros com título, editora, número de páginas e gênero.
 
- - Navegar entre os que você já leu e os que ainda quer ler
+ - Navegar entre os livros já adicionados, os que você já leu e os que ainda quer ler.
 
- - Atualizar o status conforme avança na leitura
+ - Atualizar o status conforme avança na leitura.
 
- - Remover da lista títulos que não fazem mais sentido pra você
+ - Remover da lista títulos que não fazem mais sentido pra você.
 
-Tudo isso sem complicação: um fluxo simples para gerenciar sua coleção de livros na nuvem.
 
 ## 2. Arquitetura
 
