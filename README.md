@@ -5,7 +5,7 @@
 **Grupo**:
 
 1. 10418084 - Andrea Cecilia Garcia - Aws Academy
-2. 10419181 - Caroline Cabral Begiato - Front-end, documentação
+2. 10419181 - Caroline Begiato Cabral - Front-end, documentação
 3. 10418069 - Mariana Okamoto - Aws Academy
 4. 10417520 - Renata Freire Ardito - Back-end, documentação
 
