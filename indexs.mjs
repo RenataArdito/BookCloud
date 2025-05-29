@@ -12,7 +12,6 @@ export const handler = async (event) => {
       });
 
       res.on('end', () => {
-        // Conta apenas os cards com botão "Apagar"
         const livros = data.match(/<button[^>]*>Apagar<\/button>/g) || [];
 
         resolve({
