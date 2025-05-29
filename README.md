@@ -27,8 +27,8 @@ O tema escolhido para esse projeto foi um site para catalogar livros, onde é po
 
 ```bash
 # docker logs -f bookcloud-container (envia informações do container)
-#docker ps -a (mostra lista dos containers em execução e parados)
-#docker start bookcloud-container (reiniciar docker parado)
+# docker ps -a (mostra lista dos containers em execução e parados)
+# docker start bookcloud-container (reiniciar docker parado)
 
 # Lambda JSON https://y5il6o92ya.execute-api.us-east-1.amazonaws.com/prod/report
 # Pagina Home http://54.90.208.80:8080/home
