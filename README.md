@@ -10,9 +10,17 @@
 4. 10417520 - Renata Freire Ardito - Back-end, documentação
 
 ## 1. Visão geral
-O objetivo deste projeto é desenvolver um sistema CRUD simples hospedado na AWS, com foco na correta configuração e integração de serviços em nuvem. 
+Imagine ter sua própria estante virtual, acessível de qualquer lugar. Inspirado no Skoob, nosso sistema CRUD na AWS permite:
 
-O tema escolhido para esse projeto foi um site para catalogar livros, onde é possível adicionar um livro, editora, quantidade de páginas e gênero, atualizar status do livro (lido ou quero ler), também é possivel apagar o livro do historico. 
+ - Inserir livros com título, editora, número de páginas e gênero
+
+ - Navegar entre os que você já leu e os que ainda quer ler
+
+ - Atualizar o status conforme avança na leitura
+
+ - Remover da lista títulos que não fazem mais sentido pra você
+
+Tudo isso sem complicação: um fluxo simples para gerenciar sua coleção de livros na nuvem.
 
 ## 2. Arquitetura
 
